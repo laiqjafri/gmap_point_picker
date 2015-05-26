@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A gem to easily pick co-ordinates from google map and map them to input fields}
   spec.description   = %q{A gem to easily pick co-ordinates from google map and map them to input fields (latitude and longitude)}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/laiqjafri/gmap_point_picker"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
