@@ -1,28 +1,58 @@
 # GmapPointPicker
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gmap_point_picker`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This light-weigh gem allows you to bind input fields to google map's click action. The fields get populated with the latitude and longitude of the location clicked on the map.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'gmap_point_picker'
-```
++gem 'gmap_point_picker'+
 
 And then execute:
 
-    $ bundle
+    +$ bundle install+
 
 Or install it yourself as:
 
     $ gem install gmap_point_picker
 
-## Usage
+== Usage
+=== GmapPointPicker.configure
 
-TODO: Write usage instructions here
+You may use the block style configuration. The following code could be placed
+into a +config/initializers/gmap_point_picker.rb+ when used in a Rails project.
+
+  GmapPointPicker.configure do |config|
+    config.api_key      = 'xxxxxxxyyyyzzzzzzzzz' #Required if config.load_js = true
+    config.load_js      = boolean                #default false
+    config.latitude     = "48.32324234"
+    config.longitude    = "-78.23232343"         #These are required for initial map center
+    config.map_div_id   = "map-canvas"           #div id which will be used to load the map. default 'map-canvas'
+    config.lat_field_id = "latitude"             #input field id where latitude will be populated on click. default 'latitude'
+    config.lng_field_id = "longitude"            #input field id where longitude will be populated on click. default 'longitude'
+  end
+
+These configurations can be overridden when calling
++gmap_point_picker_bind+
+
+== Example
+  <%= gmap_point_picker_bind :key => "your_api_key_here",
+        :latitude        => 34.2323232,    #Center
+        :longitude       => -78.423232,
+        :map_div_id      => 'map-canvas',  #Div for map
+        :load_js         => true,          #Should we load the google maps api for you?
+        :search_field_id => 'gmap-search', #Text box for searching on map
+        :lat_field_id    => 'latitude',    #Fields that will be populated on map click
+        :lng_field_id    => 'longitude'
+  %>
+
+  <div>
+    <input type="text" id="latitude" /><br />
+    <input type="text" id="longitude" /><br />
+    <input type="text" id="gmap-search" />
+  </div>
+  <div id="map-canvas" style="height:600px;"></div>
+
 
 ## Development
 
@@ -32,7 +62,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/gmap_point_picker/fork )
+1. Fork it ( https://github.com/laiqjafri/gmap_point_picker/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
