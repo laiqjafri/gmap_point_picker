@@ -1,4 +1,5 @@
 require "gmap_point_picker/version"
+require "gmap_point_picker/configuration"
 require "gmap_point_picker/javascript_helper"
 
 module GmapPointPicker
