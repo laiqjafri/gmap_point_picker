@@ -34,6 +34,8 @@ into a +config/initializers/gmap_point_picker.rb+ when used in a Rails project.
 
 These configurations can be overridden when calling
 +gmap_point_picker_bind+
+OR
++gmap_point_picker_bind_no_jquery+
 
 == Example
   <%= gmap_point_picker_bind :key => "your_api_key_here",
@@ -52,6 +54,8 @@ These configurations can be overridden when calling
     <input type="text" id="gmap-search" />
   </div>
   <div id="map-canvas" style="height:600px;"></div>
+
+If you do not have jQuery loaded, you can use the alternative +gmap_point_picker_bind_no_jquery+ with the same options.
 
 
 == Development
