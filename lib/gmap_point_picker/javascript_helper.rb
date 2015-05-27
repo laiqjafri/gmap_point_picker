@@ -104,7 +104,7 @@ module GmapPointPicker
       document.addEventListener("DOMContentLoaded", function(event) {
         var marker = false;
         var center, input, map, search_box;
-        if (document.getElementById("#{map_div_id}")) {
+        if (!document.getElementById("#{map_div_id}")) {
           return;
         }
         center = new google.maps.LatLng(#{latitude}, #{longitude});
