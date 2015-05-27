@@ -56,6 +56,7 @@ OR
   <div id="map-canvas" style="height:600px;"></div>
 
 If you do not have jQuery loaded, you can use the alternative +gmap_point_picker_bind_no_jquery+ with the same options.
+WARNING: +gmap_point_picker_bind_no_jquery+ will not work with IE8
 
 
 == Development
